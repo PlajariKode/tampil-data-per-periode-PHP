@@ -7,8 +7,13 @@ if (isset($_POST['submit'])) {
 	$date1 = $_POST['date1'];
 	$date2 = $_POST['date2'];
 
-	// perintah tampil data berdasarkan range tanggal
-	$q = mysqli_query($conn, "SELECT * FROM produk WHERE tgl_transaksi BETWEEN '$date1' and '$date2'");	
+	if (!empty($date1) && !empty($date2)) {
+		// perintah tampil data berdasarkan range tanggal
+		$q = mysqli_query($conn, "SELECT * FROM produk WHERE tgl_transaksi BETWEEN '$date1' and '$date2'");	
+	} else {
+		// perintah tampil semua data
+		$q = mysqli_query($conn, "SELECT * FROM produk");	
+	}	
 } else {
 	// perintah tampil semua data
 	$q = mysqli_query($conn, "SELECT * FROM produk");
