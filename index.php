@@ -62,7 +62,7 @@ if (isset($_POST['submit'])) {
 						<td><?= ucwords($r['nama_produk']) ?></td>
 						<td><?= $r['harga'] ?></td>
 						<td><?= $r['qty'] ?></td>
-						<td><?= $r['tgl_transaksi'] ?></td>
+						<td><?= date('d-M-Y', strtotime($r['tgl_transaksi'])) ?></td>
 					</tr>
 
 					<?php			
